@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            button1 = new Button();
+            username_txt = new TextBox();
+            password_txt = new TextBox();
+            login_Btn = new Button();
             Logo = new Label();
             exitBtn = new Button();
             menuStrip1 = new MenuStrip();
@@ -62,30 +62,31 @@
             label2.TabIndex = 1;
             label2.Text = "Password :";
             // 
-            // textBox1
+            // username_txt
             // 
-            textBox1.BackColor = Color.White;
-            textBox1.Location = new Point(229, 127);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(178, 23);
-            textBox1.TabIndex = 2;
+            username_txt.BackColor = Color.White;
+            username_txt.Location = new Point(229, 127);
+            username_txt.Name = "username_txt";
+            username_txt.Size = new Size(178, 23);
+            username_txt.TabIndex = 2;
             // 
-            // textBox2
+            // password_txt
             // 
-            textBox2.Location = new Point(229, 173);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(178, 23);
-            textBox2.TabIndex = 3;
+            password_txt.Location = new Point(229, 173);
+            password_txt.Name = "password_txt";
+            password_txt.Size = new Size(178, 23);
+            password_txt.TabIndex = 3;
             // 
-            // button1
+            // login_Btn
             // 
-            button1.BackColor = Color.Transparent;
-            button1.Location = new Point(135, 260);
-            button1.Name = "button1";
-            button1.Size = new Size(154, 45);
-            button1.TabIndex = 4;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = false;
+            login_Btn.BackColor = Color.Transparent;
+            login_Btn.Location = new Point(135, 260);
+            login_Btn.Name = "login_Btn";
+            login_Btn.Size = new Size(154, 45);
+            login_Btn.TabIndex = 4;
+            login_Btn.Text = "Login";
+            login_Btn.UseVisualStyleBackColor = false;
+            login_Btn.Click += login_Btn_Click;
             // 
             // Logo
             // 
@@ -141,9 +142,9 @@
             ClientSize = new Size(649, 346);
             Controls.Add(exitBtn);
             Controls.Add(Logo);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(login_Btn);
+            Controls.Add(password_txt);
+            Controls.Add(username_txt);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(menuStrip1);
@@ -152,6 +153,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "SpringsAir Admin App";
+            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -162,9 +164,9 @@
 
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
+        private TextBox username_txt;
+        private TextBox password_txt;
+        private Button login_Btn;
         private Label Logo;
         private Button exitBtn;
         private MenuStrip menuStrip1;
