@@ -44,7 +44,7 @@ namespace AdminApp
                 {
 
                     con.Open();
-                    string query = "select * from user Where username = '" + username_txt.Text + "'AND password = '" + password_txt.Text + "'";
+                    string query = "select * from users Where pilotid = '" + username_txt.Text + "'AND password = '" + password_txt.Text + "'";
                     MySqlDataReader row;
                     row = con.ExecuteReader(query);
                     if (row.HasRows)
