@@ -60,7 +60,16 @@ namespace AdminApp
                         Program.ValidLogin = true;
                         MenuForm menu = new MenuForm();
                         this.Hide();
-                         menu.ShowDialog();
+
+                        if(Program.ValidLogin == true)
+                        {
+                           menu.ShowDialog();  
+                        }
+                        else
+                        {
+                            this.Show();
+                        }
+                        
                     }
                     else
                     {
