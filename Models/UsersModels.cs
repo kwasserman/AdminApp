@@ -14,6 +14,8 @@ namespace AdminApp.Models
 
         public string name { get; set; }
         public string email { get; set; }
+        public bool isAdmin { get; set; }
+        public int pilotId { get; set; }
 
     }
    

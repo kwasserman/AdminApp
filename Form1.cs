@@ -12,7 +12,8 @@ namespace AdminApp
     public partial class Form1 : Form
     {
         connection con = new connection();
-        string username, password, Name;
+        string username, password,PilotId;
+
         public Form1()
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace AdminApp
                 {
 
                     con.Open();
-                    string query = "select * from users Where pilotid = '" + username_txt.Text + "'AND password = '" + password_txt.Text + "'";
+                    string query = "select * from users Where pilot_id = '" + username_txt.Text + "'AND password = '" + password_txt.Text + "'";
                     MySqlDataReader row;
                     row = con.ExecuteReader(query);
                     if (row.HasRows)
@@ -54,16 +55,19 @@ namespace AdminApp
                             Name = row["Name"].ToString();
                             username = row["username"].ToString();
                             password = row["password"].ToString();
+                            PilotId = row["pilot_id"].ToString();
                         }
                         Program.ValidLogin = true;
+                        MenuForm menu = new MenuForm();
+                        this.Hide();
+                         menu.ShowDialog();
                     }
                     else
                     {
-                        MessageBox.Show("No Data found", "Information");
+                        MessageBox.Show("No Account found. Please register on our website." + "<a href='http://www.springsairairlines.com'>SpringsAir</a>" , "Information");
+                        ShowDialog();
                     }
-                    MenuForm menu = new MenuForm();
-                    this.Hide();
-                    menu.ShowDialog();
+                    
 
 
                 }
