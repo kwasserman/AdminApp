@@ -12,7 +12,7 @@ namespace AdminApp
 {
     public partial class MenuForm : Form
     {
-        connection con = new connection();
+        Connection con = new Connection();
         public MenuForm()
         {
             InitializeComponent();

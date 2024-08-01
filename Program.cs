@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 namespace AdminApp
 {
     
-    class connection
+    class Connection
     {
         MySqlConnection con = new MySqlConnection();
         //MySql.Data.MySqlClient.MySqlConnection con;
