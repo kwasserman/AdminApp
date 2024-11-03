@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdminApp.Models
+namespace Models
 {
     public class UserModels
     {
-        public string username { get; set; }
+        public string Username { get; set; }
 
-        public string password { get; set; }
+        public string Password { get; set; }
 
-        public string name { get; set; }
-        public string email { get; set; }
-        public bool isAdmin { get; set; }
-        public int pilotId { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public bool IsAdmin { get; set; }
+        public int PilotId { get; set; }
 
     }
    

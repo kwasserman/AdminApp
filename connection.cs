@@ -3,13 +3,11 @@ using MySql.Data.MySqlClient;
 
 namespace Connection
 {
-    public class Connection
+    public class Connections
     {
-    
-            MySql.Data.MySqlClient.MySqlConnection? con;
-            string? myConnString;
+            MySqlConnection con = new MySqlConnection();
             static string host = "localhost";
-            static string database = "testDB";
+            static string database = "test";
             static string userDB = "root";
             static string passwordDB = "Hawaii12!";
             public static string Provider = "server=" + host + ";Database=" + database + ";User ID=" + userDB + ";Password=" + passwordDB;
@@ -48,7 +46,9 @@ namespace Connection
             {
                 MessageBox.Show(ex.Message);
             }
+#pragma warning disable CS8603 // Possible null reference return.
             return null;
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         public int ExecuteNonQuery(string sql)

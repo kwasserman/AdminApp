@@ -4,22 +4,21 @@ using System.Security.Cryptography.X509Certificates;
 namespace AdminApp
 {
     
-    class Connection
+    class AdminApp
     {
         MySqlConnection con = new MySqlConnection();
-        //MySql.Data.MySqlClient.MySqlConnection con;
-        string myConnString;
+        
         static string host = "localhost";
-        static string database = "testDB";
+        static string database = "test";
         static string userDB = "root";
         static string passwordDB = "Hawaii12!";
-        public static string Provider = "server=" + host + ";Database=" + database + ";User ID=" + userDB + ";Password=" + passwordDB;
+        public static string Provider = "server=" + host + ";Database=" + database + ";UserID=" + userDB + ";Password=" + passwordDB;
 
         public bool Open()
         {
             try
             {
-                Provider = "server=" + host + ";Database=" + database + ";User ID=" + userDB + ";Password=" + passwordDB;
+                Provider = "server=" + host + ";Database=" + database + ";UserID=" + userDB + ";Password=" + passwordDB;
                 con = new MySqlConnection(Provider);
                 con.Open();
                 return true;
@@ -27,8 +26,9 @@ namespace AdminApp
             catch (Exception er)
             {
                 MessageBox.Show("Connection Error! " + er.Message + "Information");
+                return false;
             }
-            return false;
+            
         }
         public void Close()
         {
@@ -49,7 +49,9 @@ namespace AdminApp
             {
                 MessageBox.Show(ex.Message);
             }
+
             return null;
+
         }
 
         public int ExecuteNonQuery(string sql)
@@ -92,14 +94,15 @@ namespace AdminApp
                 {
                     Application.Run(new Form1());
                 }
+                else
+                {
+                    Application.Run(new Form());
+                }
            }
            catch(Exception ex)
            {
                 MessageBox.Show("Database not connected!. Please contact support",ex.Message);
            }
-            
-            
         }
-        
     }
 }
