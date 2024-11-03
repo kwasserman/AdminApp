@@ -13,8 +13,8 @@ namespace AdminApp
 {
     public partial class Form1 : Form
     {
-        Connection con = new Connection();
-        string username, password,PilotId;
+        Connection conn = new Connection();
+        string username, password;
         
 
         
@@ -31,21 +31,21 @@ namespace AdminApp
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            con.Close();
+            conn.Close();
             Environment.Exit(0);
 
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            con.Close();
+            conn.Close();
             Environment.Exit(0);
         }
 
         public void login_Btn_Click(object sender, EventArgs e)
         {
-            string passtext = password_txt.ToString();
-            string passhash = password.GetHashCode().ToString();
+            /*string passtext = password_txt.ToString();
+            string passhash = password.ToString();*/
             //MessageBox.Show(passhash,"Warning")
             
                 try
@@ -53,17 +53,17 @@ namespace AdminApp
                     if (username_txt.Text != "" && password_txt.Text != "")
                     {
 
-                        con.Open();
-                        string query = "select * from users Where pilot_id = '" + username_txt.Text + "'AND password = '" + password_txt.Text + "'";
+                        conn.Open();
+                        string query = "select * from users Where username = '" + username_txt.Text + "'AND password = '" + password_txt.Text + "'";
                         MySqlDataReader data;
-                        data = con.ExecuteReader(query);
+                        data = conn.ExecuteReader(query);
                         MenuForm menu = new MenuForm();
                          while (data.Read())
                             {
                                 Name = data["Name"].ToString();
                                 username = data["username"].ToString();
                                 password = data["password"].ToString();
-                                PilotId = data["pilot_id"].ToString();
+                                //PilotId = data["pilot_id"].ToString();
                             }
                             
                             if (data.HasRows)
@@ -77,7 +77,7 @@ namespace AdminApp
                                 ShowDialog();
                             
 
-                            if(Program.ValidLogin == true && password == passhash)
+                            if(Program.ValidLogin == true )
                             {
                             this.Hide();
                             menu.ShowDialog();  

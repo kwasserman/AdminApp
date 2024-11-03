@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Connection;
 
 namespace AdminApp
 {
     public partial class MenuForm : Form
     {
-        Connection con = new Connection();
+        Connections con = new();
         public MenuForm()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace AdminApp
             if (Program.ValidLogin == true)
             {
                 this.Hide();
-                Form1 login = new Form1();
+                Form1 login = new();
                 login.ShowDialog();
 
 
