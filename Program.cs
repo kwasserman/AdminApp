@@ -4,7 +4,7 @@ using MySql.Data.MySqlClient;
 namespace AdminApp
 {
     
-    /*class Connection
+    class AdminApp
     {
         MySqlConnection con = new MySqlConnection();
         
@@ -50,6 +50,8 @@ namespace AdminApp
                 MessageBox.Show(ex.Message);
                 return null;
             }
+
+            return null;
 
         }
 
@@ -103,5 +105,5 @@ namespace AdminApp
                 MessageBox.Show("Database not connected!. Please contact support",ex.Message);
            }
         }
-    }*/
+    }
 }
