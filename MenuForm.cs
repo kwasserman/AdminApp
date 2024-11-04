@@ -16,6 +16,7 @@ namespace AdminApp
         public MenuForm()
         {
             InitializeComponent();
+            
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -26,15 +27,13 @@ namespace AdminApp
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Program.ValidLogin == true)
-            {
+            
                 this.Hide();
-                Form1 login = new Form1();
+                Form1 login = new();
                 login.ShowDialog();
 
 
                 con.Close();
-            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using MySql.Data.MySqlClient;
 
 
@@ -9,7 +10,7 @@ namespace AdminApp
         MySql.Data.MySqlClient.MySqlConnection con;
         string myConnString;
         static string host = "localhost";
-        static string database = "testDB";
+        static string database = "test";
         static string userDB = "root";
         static string passwordDB = "Hawaii12!";
         public static string Provider = "server=" + host + ";Database=" + database + ";User ID=" + userDB + ";Password=" + passwordDB;
@@ -72,10 +73,12 @@ namespace AdminApp
     }
     internal static class Program
     {
+        
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
-        public static bool ValidLogin = false;
+        
         [STAThread]
         
 
@@ -84,8 +87,10 @@ namespace AdminApp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-          
-                Application.Run(new Form1());
+                
+                    Application.Run(new Form1());
+                
+               
           
             
             
