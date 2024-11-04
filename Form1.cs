@@ -12,7 +12,10 @@ namespace AdminApp
     public partial class Form1 : Form
     {
         connection con = new connection();
-        string username, password, Name;
+        string username, password,rank;
+
+        
+        
         public Form1()
         {
             InitializeComponent();
@@ -38,33 +41,47 @@ namespace AdminApp
 
         private void login_Btn_Click(object sender, EventArgs e)
         {
+            string user = username_txt.ToString();
+            string pass = password_txt.ToString();
             try
             {
                 if (username_txt.Text != "" && password_txt.Text != "")
                 {
 
                     con.Open();
-                    string query = "select * from users Where pilotid = '" + username_txt.Text + "'AND password = '" + password_txt.Text + "'";
+                    string query = "select * from users Where username = '" + username_txt.Text + "'AND password = '" + password_txt.Text + "'";
                     MySqlDataReader row;
                     row = con.ExecuteReader(query);
                     if (row.HasRows)
                     {
                         while (row.Read())
                         {
-                            Name = row["Name"].ToString();
                             username = row["username"].ToString();
                             password = row["password"].ToString();
+                            rank = row["roles"].ToString();
+                            
                         }
-                        Program.ValidLogin = true;
+                        
                     }
                     else
                     {
                         MessageBox.Show("No Data found", "Information");
                     }
-                    MenuForm menu = new MenuForm();
-                    this.Hide();
-                    menu.ShowDialog();
-
+                    MessageBox.Show(username + password);
+                    /*if (user.ToString() == username && pass.ToString() == password)
+                    {*/
+                        
+                         MenuForm menu = new();
+                        this.Hide();
+                        menu.ShowDialog();
+                        
+                   /* }
+                    else
+                    {
+                        this.Show();
+                    }*/
+                       
+                    
 
                 }
                 else
@@ -73,9 +90,9 @@ namespace AdminApp
                 }
 
             }
-            catch
+            catch(Exception er)
             {
-                MessageBox.Show("Connection Error.", "Information");
+                MessageBox.Show("Connection Error." + er.Message + "Information");
             }
         }
 
