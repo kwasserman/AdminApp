@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using AdminSetting;
 namespace AdminApp
 {
-    public partial class Form1 : Form
+    public partial class login : Form
     {
-        connection con = new connection();
-        string username, password,rank;
-
+        ConnectionSettings con = new ConnectionSettings();
+        
+        string? username, password,rank;
         
         
-        public Form1()
+        
+        public login()
         {
             InitializeComponent();
         }
@@ -61,17 +63,27 @@ namespace AdminApp
                             rank = row["roles"].ToString();
                             
                         }
+                        IsValid = true;
                         
                     }
                     else
                     {
                         MessageBox.Show("No Data found", "Information");
+                        IsValid = false;
                     }
-                    MessageBox.Show(username + password);
-                    /*if (user.ToString() == username && pass.ToString() == password)
-                    {*/
+
+                    try
+                    {
+
+                    }
+                    catch (Exception er)
+                    {
+
+                        MessageBox.Show("Error", er.Message);
+                    }
                         
                          MenuForm menu = new();
+                         
                         this.Hide();
                         menu.ShowDialog();
                         

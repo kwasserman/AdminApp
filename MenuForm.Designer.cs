@@ -33,15 +33,18 @@
             menuToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
+            operationsToolStripMenuItem = new ToolStripMenuItem();
+            newsToolStripMenuItem = new ToolStripMenuItem();
+            newsPanel = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem, operationsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(804, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -55,16 +58,41 @@
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(180, 22);
+            logoutToolStripMenuItem.Size = new Size(112, 22);
             logoutToolStripMenuItem.Text = "Logout";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(112, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // operationsToolStripMenuItem
+            // 
+            operationsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newsToolStripMenuItem });
+            operationsToolStripMenuItem.Name = "operationsToolStripMenuItem";
+            operationsToolStripMenuItem.Size = new Size(77, 20);
+            operationsToolStripMenuItem.Text = "Operations";
+            // 
+            // newsToolStripMenuItem
+            // 
+            newsToolStripMenuItem.Name = "newsToolStripMenuItem";
+            newsToolStripMenuItem.Size = new Size(103, 22);
+            newsToolStripMenuItem.Text = "News";
+            newsToolStripMenuItem.Click += newsToolStripMenuItem_Click;
+            // 
+            // newsPanel
+            // 
+            newsPanel.BackColor = SystemColors.Control;
+            newsPanel.BackgroundImage = (Image)resources.GetObject("newsPanel.BackgroundImage");
+            newsPanel.BackgroundImageLayout = ImageLayout.Stretch;
+            newsPanel.BorderStyle = BorderStyle.Fixed3D;
+            newsPanel.Location = new Point(0, 27);
+            newsPanel.Name = "newsPanel";
+            newsPanel.Size = new Size(800, 425);
+            newsPanel.TabIndex = 1;
             // 
             // MenuForm
             // 
@@ -72,7 +100,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(804, 455);
+            Controls.Add(newsPanel);
             Controls.Add(menuStrip1);
             DoubleBuffered = true;
             MainMenuStrip = menuStrip1;
@@ -90,5 +119,8 @@
         private ToolStripMenuItem menuToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;
+        private ToolStripMenuItem operationsToolStripMenuItem;
+        private ToolStripMenuItem newsToolStripMenuItem;
+        private Panel newsPanel;
     }
 }

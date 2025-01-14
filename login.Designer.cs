@@ -1,6 +1,6 @@
 ﻿namespace AdminApp
 {
-    partial class Form1
+    partial class login
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             label1 = new Label();
             label2 = new Label();
             username_txt = new TextBox();
@@ -50,7 +50,7 @@
             label1.Name = "label1";
             label1.Size = new Size(66, 15);
             label1.TabIndex = 0;
-            label1.Text = "Pilot ID :";
+            label1.Text = "Username :";
             // 
             // label2
             // 
