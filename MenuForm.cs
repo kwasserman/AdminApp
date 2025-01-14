@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdminSetting;
 
 namespace AdminApp
 {
     public partial class MenuForm : Form
     {
-        connection con = new connection();
+        ConnectionSettings con = new();
+        System.DateTime date = System.DateTime.Now;
+
         public MenuForm()
         {
             InitializeComponent();
-            
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,13 +30,44 @@ namespace AdminApp
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-                this.Hide();
-                Form1 login = new();
-                login.ShowDialog();
+
+            this.Hide();
+            login login = new();
+            login.ShowDialog();
 
 
-                con.Close();
+            con.Close();
+        }
+
+        private void newsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                if (IsValid == true)
+                {
+                    Log.Information("User has tried to get,set,or retrevie news from site. Date : " + date);
+                    
+                    Panel newsPanel = new();
+
+                    newsPanel.Location = new System.Drawing.Point(0, 27);
+                    newsPanel.Name = "News";
+                    newsPanel.Size = new System.Drawing.Size(800, 411);
+                    newsPanel.TabIndex = 0;
+
+                    Controls.Add(newsPanel);
+                }
+                else
+                {
+                    login login = new();
+                    login.ShowDialog();
+                }
+            }
+            catch(Exception er)
+            {
+                MessageBox.Show("Information", "An Error has occured. Date: " + date + "Error: " + er.Message);
+            }
+
         }
     }
 }
