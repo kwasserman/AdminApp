@@ -10,7 +10,7 @@ namespace AdminSetting
 
     public class Globals
     {
-        //this parameter is used globally. Do not change its settings unless you know what you are doing.
+        //these parameters are .used globally. Do not change its settings unless you know what you are doing.
         //this setting is used to store information about a user to see if there are allowed to use this app/.
         //This app is only used by admins of the VA no body else.
         /*------------------------------------------------------------------------------------------------------------*/
