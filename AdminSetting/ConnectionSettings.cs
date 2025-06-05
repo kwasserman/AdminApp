@@ -25,21 +25,13 @@ namespace AdminSetting
         public bool Open()
         {
 
-            try
-            {
-                
+            
                 Provider = "server=" + host + ";Database=" + database + ";User ID=" + userDB + ";Password=" + passwordDB;
                 con = new MySqlConnection(Provider);
                 con.Open();
                 Log.Information("A connection was successfully made. Date: " + date);
                 return true;
-            }
-            catch (Exception er)
-            {
-                MessageBox.Show("Connection Error! " + er.Message + "Information");
-                Log.Information(er.Message + "/br Error was made on " + date);
-            }
-            return false;
+            
         }
         public void Close()
         {
@@ -47,7 +39,11 @@ namespace AdminSetting
             con.Close();
             con.Dispose();
         }
-
+        public void dispose()
+        {
+            
+        }
+        public void Dispose() { }
         public MySqlDataReader ExecuteReader(string sql)
         {
             try
