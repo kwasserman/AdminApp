@@ -8,10 +8,10 @@ namespace AdminModels
 {
     public class UserModels
     {
-        private static string _rank;
-        private static string _username;
-        private static string _password;
-        private static string _email;
+        private static string ?_rank;
+        private static string? _username;
+        private static string? _password;
+        private static string? _email;
         
         public string username {
             get

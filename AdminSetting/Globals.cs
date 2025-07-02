@@ -16,7 +16,7 @@ namespace AdminSetting
         /*------------------------------------------------------------------------------------------------------------*/
         /* This mod is for making sure that the user that is logging in is autherized to use the application */
         
-        private static bool _isValid;
+        public static bool _isValid;
 
         public static bool IsValid
         {
