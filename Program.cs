@@ -37,16 +37,17 @@ namespace AdminApp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            login loginForm = new();
 
 
-
-            if (IsValid == false)
+            if (loginForm.IsValid)
             {
-                Application.Run(new login());
+                Application.Run(new MenuForm());
+                
             }
             else
             {
-                Application.Run(new MenuForm());
+                Application.Run(new login());
             }
           
             

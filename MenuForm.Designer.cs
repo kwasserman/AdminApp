@@ -79,7 +79,7 @@
             // newsToolStripMenuItem
             // 
             newsToolStripMenuItem.Name = "newsToolStripMenuItem";
-            newsToolStripMenuItem.Size = new Size(103, 22);
+            newsToolStripMenuItem.Size = new Size(180, 22);
             newsToolStripMenuItem.Text = "News";
             newsToolStripMenuItem.Click += newsToolStripMenuItem_Click;
             // 
@@ -104,9 +104,11 @@
             Controls.Add(newsPanel);
             Controls.Add(menuStrip1);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
             Name = "MenuForm";
-            Text = "MenuForm";
+            Text = "Main Menu";
+            Load += MenuForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
