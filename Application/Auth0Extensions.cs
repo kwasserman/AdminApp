@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.JSInterop.Infrastructure;
 
 namespace AdminApp.Application
 {
@@ -37,6 +38,30 @@ namespace AdminApp.Application
                 options.ClaimsIssuer = auth0options.ClaimsIssuer;
 
                 options.TokenValidationParameters = auth0options.TokenValidationParameters;
+
+                options.Events = new OpenIdConnectEvents
+                {   
+                    OnRedirectToIdentityProviderForSignOut = context =>
+                    {
+                        var logoutUri = $"{options.Authority}/v2/logout?client_id={options.ClientId}";
+                        
+                        var postLogoutUri = context.Properties.RedirectUri;
+                        if (!string.IsNullOrEmpty(postLogoutUri))
+                        {
+                            if (postLogoutUri.StartsWith("/"))
+                            {
+                                var request = context.Request;
+                                postLogoutUri = request.Scheme + "://" + request.Host + request.PathBase + postLogoutUri;
+                            }
+                            logoutUri += $"&returnTo={Uri.EscapeDataString(postLogoutUri)}";
+                        }
+                        
+                        context.Response.Redirect(logoutUri);
+                        context.HandleResponse();
+                        
+                        return Task.CompletedTask;
+                    }
+                };
             });
         }
     }
