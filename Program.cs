@@ -42,12 +42,12 @@ namespace AdminApp
 
             if (loginForm.IsValid)
             {
-                Application.Run(new MenuForm());
-                
+                System.Windows.Forms.Application.Run(new MenuForm());
+
             }
             else
             {
-                Application.Run(new login());
+                System.Windows.Forms.Application.Run(new login());
             }
           
             
