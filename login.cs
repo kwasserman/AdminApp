@@ -125,7 +125,7 @@ namespace AdminApp
                             }
                             else
                             {
-                                Log.Information("None autherized user attempted to access page", "Information");
+                                Log.Information("Non-autherized user attempted to access page", "Information");
                                 MessageBox.Show("Only Admins can access this page", "Warning");
                             }
                         }

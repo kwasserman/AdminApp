@@ -28,7 +28,7 @@ namespace AdminApp
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             con.Close();
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,6 +67,7 @@ namespace AdminApp
             {
                 MessageBox.Show("Information", "An Error has occured. Date: " + date + "Error: " + er.Message);
                 Log.Information("An Error has occured. Date: " + date + "Error: " + er.Message);
+                
             }
 
         }
